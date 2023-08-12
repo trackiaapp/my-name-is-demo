@@ -1,0 +1,19 @@
+server.port: 5556
+
+logging.level:
+  root: INFO
+  cl.wom: DEBUG
+
+
+trackia.component: MYNAMEIS-1-0
+trackia.type: API
+
+trackia.dispatcher.class: TrackiaServerDispatcher
+trackia.dispatcher.url: http://localhost:9999/journal
+trackia.dispatcher.auth: http://localhost:9999/auth/signin
+
+trackia.dispatcher.email: HELLOWORLD-1-0@trackia.app
+trackia.dispatcher.password: 12345678
+
+#Lista de modulos habilitados separados por coma
+trackia.modules: SysInfoModule, SlaModule, IndexableModule
