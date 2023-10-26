@@ -10,18 +10,17 @@ import trackia.app.Trackia;
 import trackia.app.example.mynameis.service.MyNameIsService;
 import trackia.app.module.sla.Slable;
 import trackia.app.module.sysinfo.Infoable;
-import trackia.app.to.Journal;
 
 @RestController
 public class MyNameIsController {
 	@Autowired MyNameIsService myNameIsService;
 
-	@Trackia(value = "CONTROLLER_MYNAMEIS", description = "My Name Is TrackIA Example", collector = true, autoTransaction = true, write = true)
+	@Trackia(description = "My Name Is TrackIA Example", write = true)
 	@Slable(3000)
 	@Infoable
 	@GetMapping("myNameIs")
-	public ResponseEntity<String> myNameIs(Journal journal) {
-		return new ResponseEntity<>(myNameIsService.myNameIs(journal), HttpStatus.CREATED);
+	public ResponseEntity<String> myNameIs() {
+		return new ResponseEntity<>(myNameIsService.myNameIs(), HttpStatus.CREATED);
 	}
 
 }
